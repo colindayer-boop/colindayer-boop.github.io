@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Colin Dayer — Musician & Sound Artist</title>
+<meta name="description" content="Colin Dayer — musician, sound artist, jazz pianist and composer working at the intersection of composition, sound art and experimental music." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="site-header">
+  <a href="#top" class="mark">C&nbsp;D<span class="mark-dot">·</span></a>
+  <nav class="nav">
+    <a href="#work">Work</a>
+    <a href="#listen">Listen</a>
+    <a href="#writing">Writing</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <button class="nav-toggle" aria-label="Menu">☰</button>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <!-- Animated backdrop. If you add assets/hero.mp4, it replaces the canvas automatically. -->
+    <canvas class="hero-canvas" aria-hidden="true"></canvas>
+    <video class="hero-video" autoplay muted loop playsinline aria-hidden="true">
+      <source src="assets/hero.mp4" type="video/mp4" />
+    </video>
+    <div class="hero-inner">
+      <p class="eyebrow">Musician · Sound Artist · Composer</p>
+      <h1 class="hero-title">Colin<br />Dayer</h1>
+      <p class="hero-lede">
+        Working at the intersection of <em>composition</em>, <em>sound art</em>
+        and <em>experimental music</em> — connecting acoustic and electronic
+        sound across film, theatre and improvisation.
+      </p>
+      <div class="hero-meta">
+        <span>Bern / Berlin / Wallis</span>
+        <span class="dash">—</span>
+        <span>Jazz piano · Field recording · Composition</span>
+      </div>
+    </div>
+    <div class="hero-index" aria-hidden="true">
+      <span>01 — Work</span>
+      <span>02 — Listen</span>
+      <span>03 — Writing</span>
+      <span>04 — About</span>
+    </div>
+  </section>
+
+  <!-- WORK / SELECTED -->
+  <section id="work" class="section">
+    <div class="section-head">
+      <span class="num">01</span>
+      <h2>Selected Work</h2>
+    </div>
+
+    <div class="work-grid">
+      <article class="work-card">
+        <div class="work-tag">Installation · Sound + Video</div>
+        <h3>A Field of Relations</h3>
+        <p>Radio piece / sound work presented on <em>À suivre</em>, Radio RABE (Bern), May 2026.
+           An excerpt broadcast and an interview in German.</p>
+        <a class="work-link" href="#listen">Listen ↓</a>
+      </article>
+
+      <article class="work-card">
+        <div class="work-tag">Composition · Binaural</div>
+        <h3>Miniature</h3>
+        <p>A binaural miniature composed for headphone listening — created for a
+           binaural audio-technique course. Best heard on headphones.</p>
+        <a class="work-link" href="#listen">Listen ↓</a>
+      </article>
+
+      <article class="work-card">
+        <div class="work-tag">Film / Performance</div>
+        <h3>Anarchie Hebdo</h3>
+        <p>Audiovisual project submitted for the entrance examination at HEAD — Genève.</p>
+        <a class="work-link" href="#listen">Watch ↓</a>
+      </article>
+
+      <article class="work-card muted">
+        <div class="work-tag">More</div>
+        <h3>Film scoring &amp; touring</h3>
+        <p>Assistant film composition (Ella van der Woude), piano on <em>Silver Haze</em> (2023),
+           touring and live sound across CH / DE / FR / UA.</p>
+        <a class="work-link" href="#about">About ↓</a>
+      </article>
+    </div>
+  </section>
+
+  <!-- LISTEN -->
+  <section id="listen" class="section listen">
+    <div class="section-head">
+      <span class="num">02</span>
+      <h2>Listen</h2>
+    </div>
+
+    <div class="tracklist">
+      <article class="track" data-src="audio/rabe-teaser.mp3">
+        <button class="track-play" aria-label="Play">▶</button>
+        <div class="track-body">
+          <div class="track-title">A Field of Relations — <span>À suivre radio edit</span></div>
+          <div class="track-desc">Radio RABE, Bern · May 2026</div>
+          <div class="track-progress"><div class="track-bar"></div></div>
+        </div>
+        <div class="track-time">—</div>
+      </article>
+
+      <article class="track" data-src="audio/miniature-binaural.mp3">
+        <button class="track-play" aria-label="Play">▶</button>
+        <div class="track-body">
+          <div class="track-title">Miniature — <span>binaural mix</span> <em class="hp">🎧 headphones</em></div>
+          <div class="track-desc">Binaural composition · first mix</div>
+          <div class="track-progress"><div class="track-bar"></div></div>
+        </div>
+        <div class="track-time">—</div>
+      </article>
+
+      <article class="track" data-src="audio/dune-lilulmann.mp3">
+        <button class="track-play" aria-label="Play">▶</button>
+        <div class="track-body">
+          <div class="track-title">Dune — <span>Lil Ulmann</span></div>
+          <div class="track-desc">Piano &amp; co-production · 2018</div>
+          <div class="track-progress"><div class="track-bar"></div></div>
+        </div>
+        <div class="track-time">—</div>
+      </article>
+    </div>
+
+    <div class="video-block">
+      <h3 class="video-title">Anarchie Hebdo <span>— HEAD Genève entrance project</span></h3>
+      <video class="video" controls preload="metadata" playsinline>
+        <source src="assets/anarchie-hebdo.mp4" type="video/mp4" />
+      </video>
+    </div>
+
+    <p class="soundcloud-line">
+      More on <a href="https://soundcloud.com/colin-dayer-jazzpianist" target="_blank" rel="noopener">SoundCloud →</a>
+    </p>
+  </section>
+
+  <!-- WRITING -->
+  <section id="writing" class="section">
+    <div class="section-head">
+      <span class="num">03</span>
+      <h2>Writing &amp; Research</h2>
+    </div>
+    <div class="writing-list">
+      <p class="writing-empty">
+        Essays and research from sociology, literature and North American studies
+        (FU Berlin) — coming as you upload them. Each will live here as a titled
+        entry with an abstract and a PDF.
+      </p>
+      <!-- Template for a paper entry:
+      <article class="paper">
+        <div class="paper-meta">2025 · Sound Studies</div>
+        <h3>Paper title</h3>
+        <p>Short abstract…</p>
+        <a href="papers/filename.pdf" target="_blank">Read PDF →</a>
+      </article>
+      -->
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section about">
+    <div class="section-head">
+      <span class="num">04</span>
+      <h2>About</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-bio">
+        <figure class="portrait">
+          <img src="assets/portrait.jpg" alt="Colin Dayer" loading="lazy" />
+        </figure>
+        <p class="lead">
+          Colin Dayer is a musician and sound artist working between composition,
+          sound art and experimental music. His focus is the meeting of acoustic
+          and electronic sound — in film, theatre and improvised music — building
+          sonic landscapes with narrative and emotional depth.
+        </p>
+        <p>
+          Trained in jazz piano at the Conservatoire cantonal de Sion and EJMA
+          Valais, he has toured and recorded across Switzerland, Germany, France
+          and Ukraine, worked in live sound at Loophole Berlin, and collaborated on
+          film scoring, studio production and record-label work in Berlin and New York.
+        </p>
+      </div>
+      <div class="about-cols">
+        <div class="about-col">
+          <h4>Selected discography</h4>
+          <ul>
+            <li>The Image Factory — <em>Sitting with the Uncomfortable</em> (2024) · piano</li>
+            <li>Hello Pity — <em>LP</em> (2023) · guitar, vocals, synth</li>
+            <li>Perilymph — <em>Tout En Haut</em> (2023) · keys</li>
+            <li>World Wild Web — <em>Microcosm</em> (2022) · synth</li>
+            <li>Per Hominis — <em>II &amp; III</em> (2020–21) · piano, arrangements</li>
+            <li>Hello Pity — <em>Goodbye Genius</em> (2019) · self-recorded / mixed</li>
+            <li>Lil Ulmann — <em>Dune</em> (2018) · piano &amp; co-production</li>
+          </ul>
+        </div>
+        <div class="about-col">
+          <h4>Practice</h4>
+          <ul>
+            <li>Composition &amp; sound design (film / theatre)</li>
+            <li>Jazz piano &amp; improvisation</li>
+            <li>Binaural &amp; field recording</li>
+            <li>Recording, mixing &amp; live sound (Reaper)</li>
+          </ul>
+          <h4>Languages</h4>
+          <ul>
+            <li>French — native</li>
+            <li>English — C1</li>
+            <li>German — B2</li>
+          </ul>
+          <a class="cv-link" href="assets/Colin_Dayer_CV.pdf" target="_blank">Download CV (PDF) ↓</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section contact">
+    <div class="section-head">
+      <span class="num">05</span>
+      <h2>Contact</h2>
+    </div>
+    <div class="contact-inner">
+      <a class="contact-big" href="mailto:colin.dayer@gmail.com">colin.dayer@gmail.com</a>
+      <div class="contact-links">
+        <a href="https://soundcloud.com/colin-dayer-jazzpianist" target="_blank" rel="noopener">SoundCloud</a>
+        <span>Bern, Switzerland</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <span>© <span id="year"></span> Colin Dayer</span>
+  <span>Musician · Sound Artist</span>
+</footer>
+
+<!-- Persistent mini player -->
+<div class="player" id="player" hidden>
+  <button class="player-play" aria-label="Play/pause">▶</button>
+  <div class="player-info">
+    <div class="player-title">—</div>
+    <div class="player-bar"><div class="player-fill"></div></div>
+  </div>
+  <div class="player-time">0:00</div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
