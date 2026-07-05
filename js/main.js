@@ -151,7 +151,7 @@ nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.cla
 /* ---- scroll-reveal: sections & cards fade up as they enter ---- */
 (function reveal(){
   if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  const targets = document.querySelectorAll('.section-head, .work-card, .track, .video-block, .about-bio, .about-cols, .contact-inner, .paper');
+  const targets = document.querySelectorAll('.section-head, .work-card, .track, .video-block, .live-block, .about-bio, .about-cols, .contact-inner, .paper');
   targets.forEach(el => el.classList.add('will-reveal'));
   const io = new IntersectionObserver(es => es.forEach(e => {
     if(e.isIntersecting){ e.target.classList.add('revealed'); io.unobserve(e.target); }
