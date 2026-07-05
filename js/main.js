@@ -233,6 +233,7 @@ ambientPlay();
 
 /* ---- audio player ---- */
 const audio = new Audio();
+window._audio = audio;   // debugging hook
 let currentTrack = null;
 
 const player = document.getElementById('player');
@@ -272,6 +273,23 @@ function playTrack(track){
 
 tracks.forEach(track => {
   track.addEventListener('click', () => playTrack(track));
+
+  // click-to-seek on the track's progress bar
+  const prog = track.querySelector('.track-progress');
+  prog.addEventListener('click', e => {
+    e.stopPropagation();
+    const rect = prog.getBoundingClientRect();
+    const frac = Math.min(1, Math.max(0, (e.clientX - rect.left) / rect.width));
+    if (currentTrack === track && !isNaN(audio.duration)){
+      audio.currentTime = frac * audio.duration;
+      if (audio.paused) audio.play();
+    } else {
+      playTrack(track);
+      const seekWhenReady = () => { audio.currentTime = frac * audio.duration; };
+      if (!isNaN(audio.duration) && audio.duration) seekWhenReady();
+      else audio.addEventListener('loadedmetadata', seekWhenReady, {once:true});
+    }
+  });
 });
 
 playerPlay.addEventListener('click', () => { audio.paused ? audio.play() : audio.pause(); });

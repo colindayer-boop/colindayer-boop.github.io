@@ -203,8 +203,19 @@ a{color:inherit;text-decoration:none}
 .track-title span{color:var(--ink-dim);font-family:var(--sans);font-size:.9rem;font-weight:300}
 .track-title .hp{font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;color:var(--accent);margin-left:.4rem;vertical-align:middle}
 .track-desc{font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;color:var(--ink-dim);text-transform:uppercase;margin-top:.3rem}
-.track-progress{height:2px;background:var(--line);margin-top:.8rem;overflow:hidden}
-.track-bar{height:100%;width:0;background:var(--accent)}
+.track-progress{
+  position:relative;height:14px;margin-top:.4rem;cursor:pointer;
+}
+.track-progress::before{ /* rail */
+  content:"";position:absolute;left:0;right:0;top:50%;height:2px;
+  transform:translateY(-50%);background:var(--line);
+}
+.track-progress:hover::before{background:#3a3a42}
+.track-bar{
+  position:absolute;left:0;top:50%;height:2px;transform:translateY(-50%);
+  width:0;background:var(--accent);pointer-events:none;
+}
+.track-progress:hover .track-bar{height:4px}
 .track-time{font-family:var(--mono);font-size:.75rem;color:var(--ink-dim);flex:0 0 auto}
 
 /* ---------- live block ---------- */
