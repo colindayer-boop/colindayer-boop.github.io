@@ -313,3 +313,34 @@ if (video){
 document.querySelectorAll('video').forEach(v =>
   v.addEventListener('play', () => { ambientWanted = false; ambientStop(); })
 );
+
+/* ---- gallery lightbox ---- */
+(function lightbox(){
+  const items = document.querySelectorAll('.gallery-item');
+  if(!items.length) return;
+  const box = document.createElement('div');
+  box.className = 'lightbox'; box.hidden = true;
+  box.innerHTML = '<img alt="" /><div class="lightbox-cap"></div>';
+  document.body.appendChild(box);
+  const img = box.querySelector('img'), cap = box.querySelector('.lightbox-cap');
+  items.forEach(it => it.addEventListener('click', () => {
+    img.src = it.querySelector('img').src;
+    img.alt = it.querySelector('img').alt;
+    cap.textContent = 'Sonic Redux — ' + it.querySelector('figcaption').textContent + ' · aluminium plate, mixed media · 2025';
+    box.hidden = false;
+    document.body.style.overflow = 'hidden';
+  }));
+  box.addEventListener('click', () => { box.hidden = true; document.body.style.overflow = ''; });
+  window.addEventListener('keydown', e => { if(e.key === 'Escape' && !box.hidden){ box.hidden = true; document.body.style.overflow = ''; } });
+})();
+
+/* ---- program text language tabs ---- */
+document.querySelectorAll('.prog-langs').forEach(tabs => {
+  const wrap = tabs.closest('.prog-body');
+  tabs.querySelectorAll('.lang-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.querySelectorAll('.lang-tab').forEach(t => t.classList.toggle('active', t === tab));
+      wrap.querySelectorAll('.prog-lang').forEach(p => p.hidden = p.dataset.lang !== tab.dataset.lang);
+    });
+  });
+});
