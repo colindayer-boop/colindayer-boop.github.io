@@ -159,6 +159,37 @@ nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.cla
   targets.forEach(el => io.observe(el));
 })();
 
+/* ---- ambient background sound (First Modulation) ---- */
+const ambient = new Audio('audio/first-modulation.mp3');
+ambient.loop = true;
+ambient.volume = 0.3;
+window._ambient = ambient;   // debugging hook
+const soundToggle = document.getElementById('soundToggle');
+let ambientWanted = true;   // user intent; browser may still block until a gesture
+
+function syncSoundUI(){
+  soundToggle.classList.toggle('on', !ambient.paused);
+}
+function ambientPlay(){
+  ambient.play().then(syncSoundUI).catch(()=>{ /* blocked until user gesture */ });
+}
+function ambientStop(){ ambient.pause(); syncSoundUI(); }
+
+soundToggle.addEventListener('click', e => {
+  e.stopPropagation();
+  ambientWanted = ambient.paused;
+  ambientWanted ? ambientPlay() : ambientStop();
+});
+
+// try autoplay; if blocked, start on the first interaction anywhere
+ambientPlay();
+['pointerdown','keydown','touchstart'].forEach(ev =>
+  window.addEventListener(ev, function once(){
+    if (ambientWanted && ambient.paused) ambientPlay();
+    window.removeEventListener(ev, once);
+  }, {once:true})
+);
+
 /* ---- audio player ---- */
 const audio = new Audio();
 let currentTrack = null;
@@ -184,6 +215,7 @@ tracks.forEach(t => {
 });
 
 function playTrack(track){
+  ambientWanted = false; ambientStop();   // duck the site ambient for real listening
   if (currentTrack === track){
     audio.paused ? audio.play() : audio.pause();
     return;
@@ -236,3 +268,7 @@ if (video){
   video.addEventListener('play', () => audio.pause());
   audio.addEventListener('play', () => video.pause());
 }
+// any html5 video (installation, anarchie) also stops the ambient
+document.querySelectorAll('video').forEach(v =>
+  v.addEventListener('play', () => { ambientWanted = false; ambientStop(); })
+);
