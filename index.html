@@ -15,10 +15,17 @@
 
 <header class="site-header">
   <a href="#top" class="mark">C&nbsp;D<span class="mark-dot">·</span></a>
-  <button class="sound-toggle" id="soundToggle" aria-label="Toggle ambient sound">
-    <span class="sound-bars" aria-hidden="true"><i></i><i></i><i></i></span>
-    <span class="sound-label">Sound</span>
-  </button>
+  <div class="sound-wrap" id="soundWrap">
+    <button class="sound-toggle" id="soundToggle" aria-label="Toggle ambient sound">
+      <span class="sound-bars" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span class="sound-label" id="soundLabel">Sound</span>
+      <span class="sound-caret" id="soundCaret" aria-label="Choose ambient track">▾</span>
+    </button>
+    <div class="sound-menu" id="soundMenu" hidden>
+      <button data-amb="audio/dune-lilulmann.mp3" data-name="Dune">Dune</button>
+      <button data-amb="audio/first-modulation.mp3" data-name="First Modulation">First Modulation</button>
+    </div>
+  </div>
   <nav class="nav">
     <a href="#work">Work</a>
     <a href="#listen">Listen</a>
@@ -52,12 +59,12 @@
         <span>Jazz piano · Sound design · Composition</span>
       </div>
     </div>
-    <div class="hero-index" aria-hidden="true">
-      <span>01 — Work</span>
-      <span>02 — Listen</span>
-      <span>03 — Writing</span>
-      <span>04 — About</span>
-    </div>
+    <nav class="hero-index">
+      <a href="#work">01 — Work</a>
+      <a href="#listen">02 — Listen</a>
+      <a href="#writing">03 — Writing</a>
+      <a href="#about">04 — About</a>
+    </nav>
   </section>
 
   <!-- WORK / SELECTED -->
@@ -69,19 +76,11 @@
 
     <div class="work-grid">
       <article class="work-card">
-        <div class="work-tag">Installation · Sound + Video</div>
+        <div class="work-tag">Installation · Biofeedback · Radio</div>
         <h3>A Field of Relations</h3>
-        <p>Radio piece / sound work presented on <em>À suivre</em>, Radio RABE (Bern), May 2026.
-           An excerpt broadcast and an interview in German.</p>
-        <a class="work-link" href="#listen">Listen ↓</a>
-      </article>
-
-      <article class="work-card">
-        <div class="work-tag">Installation · Biofeedback</div>
-        <h3>Plant Installation</h3>
         <p>Living plant, electrodes, generative sound — semester project, 2026.
-           Presented on Radio RABE's <em>À suivre</em>.</p>
-        <a class="work-link" href="#listen">Watch ↓</a>
+           Broadcast and interview on <em>À suivre</em>, Radio RABE (Bern), May 2026.</p>
+        <a class="work-link" href="#listen">Watch &amp; listen ↓</a>
       </article>
 
       <article class="work-card">
@@ -175,7 +174,7 @@
         <button class="track-play" aria-label="Play">▶</button>
         <div class="track-body">
           <div class="track-title">First Modulation — <span>PM.meridian</span></div>
-          <div class="track-desc">Sound synthesis · also the site's ambient</div>
+          <div class="track-desc">Sound synthesis · 2026</div>
           <div class="track-progress"><div class="track-bar"></div></div>
         </div>
         <div class="track-time">—</div>
@@ -216,17 +215,11 @@
 
     <div class="live-block">
       <h3 class="video-title">Live in the Lobby <span>— Michelberger Hotel, Berlin 2023</span></h3>
-      <div class="live-grid">
-        <div class="live-embed">
-          <iframe src="https://www.youtube.com/embed/vUCsnB3HBtA" title="Colin Dayer — Live in the Lobby, Berlin 2023"
-                  loading="lazy" frameborder="0"
-                  allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen></iframe>
-        </div>
-        <figure class="live-photo">
-          <img src="assets/live-bw.jpg" alt="Colin Dayer, Berlin" loading="lazy" />
-          <figcaption>Berlin</figcaption>
-        </figure>
+      <div class="live-embed" style="max-width:1000px">
+        <iframe src="https://www.youtube.com/embed/vUCsnB3HBtA" title="Colin Dayer — Live in the Lobby, Berlin 2023"
+                loading="lazy" frameborder="0"
+                allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
       </div>
     </div>
 
@@ -241,7 +234,7 @@
     </div>
 
     <div class="live-block">
-      <h3 class="video-title">Plant Installation <span>— semester project, 2026</span></h3>
+      <h3 class="video-title">A Field of Relations <span>— plant installation, 2026</span></h3>
       <div class="live-grid">
         <div class="live-embed">
           <video controls preload="metadata" playsinline style="position:absolute;inset:0;width:100%;height:100%;background:#000">
@@ -249,7 +242,7 @@
           </video>
         </div>
         <figure class="live-photo">
-          <img src="assets/plant-installation.jpg" alt="Plant installation — biofeedback, teal light" loading="lazy" />
+          <img src="assets/plant-installation.jpg" alt="A Field of Relations — biofeedback plant installation, teal light" loading="lazy" />
           <figcaption>Installation view</figcaption>
         </figure>
       </div>

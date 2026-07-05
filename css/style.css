@@ -38,8 +38,8 @@ a{color:inherit;text-decoration:none}
   position:fixed;top:0;left:0;right:0;z-index:20;
   display:flex;align-items:center;justify-content:space-between;
   padding:1.1rem var(--pad);
-  mix-blend-mode:difference;
 }
+.site-header .mark,.site-header .nav,.site-header .nav-toggle{mix-blend-mode:difference}
 .mark{font-family:var(--mono);font-weight:500;letter-spacing:.12em;font-size:.95rem}
 .mark-dot{color:var(--accent)}
 .nav{display:flex;gap:1.6rem}
@@ -51,6 +51,24 @@ a{color:inherit;text-decoration:none}
 .nav-toggle{display:none;background:none;border:none;color:var(--ink);font-size:1.3rem;cursor:pointer}
 
 /* ambient sound toggle */
+.sound-wrap{position:relative}
+.sound-menu{
+  position:absolute;top:calc(100% + .5rem);left:0;z-index:40;
+  background:rgba(12,12,15,.95);backdrop-filter:blur(10px);
+  border:1px solid var(--line);min-width:11rem;
+  display:flex;flex-direction:column;
+}
+.sound-menu[hidden]{display:none}
+.sound-menu button{
+  background:none;border:none;border-bottom:1px solid var(--line);
+  color:var(--ink-dim);cursor:pointer;text-align:left;
+  font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;
+  padding:.7rem .9rem;transition:color .2s,background .2s;
+}
+.sound-menu button:last-child{border-bottom:none}
+.sound-menu button:hover{color:var(--accent);background:rgba(200,255,46,.04)}
+.sound-caret{padding-left:.15rem;opacity:.7}
+.sound-caret:hover{opacity:1}
 .sound-toggle{
   display:flex;align-items:center;gap:.5rem;
   background:none;border:1px solid var(--line);border-radius:2rem;

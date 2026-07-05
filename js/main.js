@@ -159,12 +159,15 @@ nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.cla
   targets.forEach(el => io.observe(el));
 })();
 
-/* ---- ambient background sound (First Modulation) ---- */
-const ambient = new Audio('audio/first-modulation.mp3');
+/* ---- ambient background sound (Dune by default, chooser in header) ---- */
+const ambient = new Audio('audio/dune-lilulmann.mp3');
 ambient.loop = true;
 ambient.volume = 0.3;
 window._ambient = ambient;   // debugging hook
 const soundToggle = document.getElementById('soundToggle');
+const soundCaret = document.getElementById('soundCaret');
+const soundMenu = document.getElementById('soundMenu');
+const soundLabel = document.getElementById('soundLabel');
 let ambientWanted = true;   // user intent; browser may still block until a gesture
 
 function syncSoundUI(){
@@ -176,10 +179,29 @@ function ambientPlay(){
 function ambientStop(){ ambient.pause(); syncSoundUI(); }
 
 soundToggle.addEventListener('click', e => {
+  if (e.target === soundCaret) return;   // caret opens the menu instead
   e.stopPropagation();
   ambientWanted = ambient.paused;
   ambientWanted ? ambientPlay() : ambientStop();
 });
+
+/* track chooser */
+soundCaret.addEventListener('click', e => {
+  e.stopPropagation();
+  soundMenu.hidden = !soundMenu.hidden;
+});
+soundMenu.querySelectorAll('button').forEach(b => {
+  b.addEventListener('click', e => {
+    e.stopPropagation();
+    const wasPlaying = !ambient.paused;
+    ambient.src = b.dataset.amb;
+    soundLabel.textContent = b.dataset.name;
+    soundMenu.hidden = true;
+    ambientWanted = true;
+    if (wasPlaying || ambient.paused) ambientPlay();
+  });
+});
+document.addEventListener('click', () => { soundMenu.hidden = true; });
 
 // try autoplay; if blocked, start on the first interaction anywhere
 ambientPlay();
