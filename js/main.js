@@ -1,6 +1,25 @@
 /* ============ Colin Dayer — interactions ============ */
 document.getElementById('year').textContent = new Date().getFullYear();
 
+/* ---- robust in-page anchor scrolling ---- */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (!target) return;            // let normal navigation handle it
+    e.preventDefault();
+    const startY = window.scrollY;
+    target.scrollIntoView({behavior:'smooth', block:'start'});
+    history.replaceState(null, '', a.getAttribute('href'));
+    // fallback: if smooth scrolling didn't move us (rare env quirks), jump
+    setTimeout(() => {
+      if (Math.abs(window.scrollY - startY) < 10 &&
+          Math.abs(target.getBoundingClientRect().top) > 50){
+        target.scrollIntoView({block:'start'});
+      }
+    }, 700);
+  });
+});
+
 /* ---- mobile nav ---- */
 const nav = document.querySelector('.nav');
 const toggle = document.querySelector('.nav-toggle');
