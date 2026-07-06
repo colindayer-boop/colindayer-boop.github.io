@@ -5,8 +5,8 @@
   --ink:#eae7e1;
   --ink-dim:#8b8781;
   --line:#26262c;
-  --accent:#c8ff2e;      /* electric lime — cyberpunk edge */
-  --accent-2:#ff5a3c;    /* warm signal — jazz heat */
+  --accent:#e23b2b;      /* vermilion — from Colin's ink drawings */
+  --accent-2:#2a44b8;    /* cobalt — from Colin's ink drawings */
   --serif:"Newsreader",Georgia,serif;
   --sans:"Space Grotesk",system-ui,sans-serif;
   --mono:"JetBrains Mono",monospace;
@@ -66,7 +66,7 @@ a{color:inherit;text-decoration:none}
   padding:.7rem .9rem;transition:color .2s,background .2s;
 }
 .sound-menu button:last-child{border-bottom:none}
-.sound-menu button:hover{color:var(--accent);background:rgba(200,255,46,.04)}
+.sound-menu button:hover{color:var(--accent);background:rgba(226,59,43,.06)}
 .sound-caret{padding-left:.15rem;opacity:.7}
 .sound-caret:hover{opacity:1}
 .sound-toggle{
@@ -308,6 +308,40 @@ a{color:inherit;text-decoration:none}
 .soundcloud-line{margin-top:2.5rem;font-family:var(--mono);font-size:.8rem;letter-spacing:.06em;color:var(--ink-dim)}
 .soundcloud-line a{color:var(--accent)}
 
+/* ---------- release (bandcamp) ---------- */
+.release-block{border-top:1px solid var(--line);padding-top:.5rem;margin-bottom:1rem}
+.bandcamp{max-width:700px;display:block}
+
+/* ---------- words / poems ---------- */
+.words{position:relative;overflow:hidden}
+.words::before{ /* faint detail of Colin's drawing as texture */
+  content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:url("../assets/art-bg.jpg") no-repeat right -6% top 8%;
+  background-size:48%;opacity:.06;filter:grayscale(.2);
+  mix-blend-mode:screen;
+}
+.words .section-head,.poems{position:relative;z-index:1}
+.poems{display:flex;flex-direction:column;gap:5rem;max-width:1000px}
+.poem{display:grid;grid-template-columns:0.85fr 1fr;gap:3rem;align-items:center}
+.poem.reverse{grid-template-columns:1fr 0.85fr}
+.poem.reverse .poem-art{order:2}
+.poem-art{margin:0;background:#f2efe9;padding:1rem;border:1px solid var(--line);
+  box-shadow:0 20px 60px rgba(0,0,0,.4);transition:transform .4s}
+.poem-art:hover{transform:translateY(-5px)}
+.poem-art img{width:100%;height:auto;display:block}
+.poem-text h3{
+  font-family:var(--serif);font-weight:500;font-size:1.7rem;
+  margin-bottom:1.1rem;letter-spacing:-.01em;color:var(--ink);
+}
+.poem-text p{
+  font-family:var(--serif);font-size:1.15rem;line-height:1.7;
+  color:var(--ink);margin-bottom:1rem;
+}
+.poem-meta{
+  margin-top:1.4rem;font-family:var(--mono);font-size:.66rem;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--accent);
+}
+
 /* ---------- writing ---------- */
 .writing-empty{color:var(--ink-dim);max-width:52ch;font-size:1.05rem;font-family:var(--serif)}
 .paper{border-bottom:1px solid var(--line);padding:1.6rem 0}
@@ -327,9 +361,9 @@ a{color:inherit;text-decoration:none}
   filter:grayscale(1) contrast(1.08) brightness(.95);
   transition:filter .5s ease;
 }
-.portrait::after{ /* duotone wash: dark shadows + lime highlights */
+.portrait::after{ /* duotone wash: dark shadows + warm highlights */
   content:"";position:absolute;inset:0;pointer-events:none;
-  background:linear-gradient(150deg,rgba(200,255,46,.14),rgba(10,10,12,.55));
+  background:linear-gradient(150deg,rgba(226,59,43,.12),rgba(10,10,12,.5));
   mix-blend-mode:color;
 }
 .portrait::before{ /* subtle scanline / cyberpunk texture */
@@ -410,6 +444,10 @@ a{color:inherit;text-decoration:none}
   .live-grid{grid-template-columns:1fr}
   .gallery{grid-template-columns:1fr 1fr;gap:1rem}
   .live-photo{aspect-ratio:3/2}
+  .poem,.poem.reverse{grid-template-columns:1fr;gap:1.4rem}
+  .poem.reverse .poem-art{order:0}
+  .poem-art{max-width:420px}
+  .words::before{background-size:120%}
   .about-grid{grid-template-columns:1fr;gap:2.5rem}
   .about-cols{grid-template-columns:1fr 1fr}
   .site-footer{flex-direction:column;gap:.5rem}
