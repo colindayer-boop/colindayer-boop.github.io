@@ -317,8 +317,7 @@ a{color:inherit;text-decoration:none}
 .words::before{ /* faint detail of Colin's drawing as texture */
   content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
   background:url("../assets/art-bg.jpg") no-repeat right -6% top 8%;
-  background-size:48%;opacity:.06;filter:grayscale(.2);
-  mix-blend-mode:screen;
+  background-size:48%;opacity:.05;filter:grayscale(.2);
 }
 .words .section-head,.poems{position:relative;z-index:1}
 .poems{display:flex;flex-direction:column;gap:5rem;max-width:1000px}
@@ -360,6 +359,48 @@ a{color:inherit;text-decoration:none}
   color:var(--ink-dim);margin-bottom:.9rem;
 }
 .poem-entry .poem-meta{margin-top:.9rem}
+
+/* paper-scan pieces (handwritten) sit on their own paper, no white mat */
+.poem-art--paper{background:#e9e5dc;padding:.5rem}
+
+/* more poems — click-to-open timeline */
+.more-poems{position:relative;z-index:1;margin-top:5rem;border-top:1px solid var(--line);padding-top:2.5rem}
+.more-poems > summary{
+  cursor:pointer;list-style:none;display:inline-flex;align-items:baseline;gap:.6rem;
+  font-family:var(--serif);font-size:1.6rem;font-weight:500;color:var(--ink);
+}
+.more-poems > summary span{font-family:var(--mono);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-dim)}
+.more-poems > summary::-webkit-details-marker{display:none}
+.more-poems > summary::before{content:"+";color:var(--accent);font-family:var(--mono);margin-right:.3rem}
+.more-poems[open] > summary::before{content:"−"}
+
+.timeline{
+  margin-top:2.5rem;max-width:760px;
+  border-left:1px solid var(--line);padding-left:2rem;margin-left:.5rem;
+}
+.tl-year{
+  font-family:var(--mono);font-size:.8rem;letter-spacing:.2em;color:var(--accent);
+  margin:2.2rem 0 1rem;position:relative;
+}
+.tl-year:first-child{margin-top:0}
+.tl-year::before{
+  content:"";position:absolute;left:calc(-2rem - 4px);top:50%;transform:translateY(-50%);
+  width:7px;height:7px;border-radius:50%;background:var(--accent);
+}
+.tl-poem{border-bottom:1px solid var(--line)}
+.tl-poem > summary{
+  cursor:pointer;list-style:none;padding:.9rem 0;
+  font-family:var(--serif);font-size:1.15rem;color:var(--ink-dim);
+  transition:color .2s;display:flex;justify-content:space-between;align-items:center;
+}
+.tl-poem > summary:hover{color:var(--ink)}
+.tl-poem > summary::-webkit-details-marker{display:none}
+.tl-poem > summary::after{content:"→";color:var(--ink-dim);font-family:var(--mono);font-size:.8rem;transition:transform .2s}
+.tl-poem[open] > summary{color:var(--ink)}
+.tl-poem[open] > summary::after{transform:rotate(90deg);color:var(--accent)}
+.tl-body{padding:.3rem 0 1.6rem}
+.tl-body p{font-family:var(--serif);font-size:1.02rem;line-height:1.65;color:var(--ink-dim);margin-bottom:.9rem}
+.tl-body .poem-meta{margin-top:.6rem}
 
 /* ---------- writing ---------- */
 .writing-empty{color:var(--ink-dim);max-width:52ch;font-size:1.05rem;font-family:var(--serif)}
