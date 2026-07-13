@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://colindayer.github.io/sitemap.xml
